@@ -1,0 +1,30 @@
+<label class="inline-block mb-2">{{ label }}</label>
+<input [type]="type" [formControl]="control"
+       class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
+              duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+       [placeholder]="placeholder"/>
+<ng-container *ngIf="control.touched && control.dirty">
+  <p class="text-red-400 form-errors" *ngIf="control?.errors?.['required']">
+    {{ label }} is required
+  </p>
+  <p class="text-red-400 form-errors" *ngIf="control?.errors?.['minlength']">
+    The value you inputted is {{ control.errors?.['minlength'].actualLength }} characters long.
+    It must be at least {{ control.errors?.['minlength'].requiredLength }}
+  </p>
+  <p class="text-red-400 form-errors" *ngIf="control?.errors?.['maxlength']">
+    The value you inputted is {{ control.errors?.['maxlength'].actualLength }} characters long.
+    It must be at least {{ control.errors?.['maxlength'].requiredLength }}
+  </p>
+  <p class="text-red-400 form-errors" *ngIf="control?.errors?.['pattern']">
+    {{ label }} is incorrect
+  </p>
+  <p class="text-red-400 form-errors" *ngIf="control?.errors?.['min']">
+    {{ label }} is less than min.
+  </p>
+  <p class="text-red-400 form-errors" *ngIf="control?.errors?.['max']">
+    {{ label }} is more than max.
+  </p>
+  <p class="text-red-400 form-errors" *ngIf="control?.errors?.['email']">
+    {{ label }} is incorrect.
+  </p>
+</ng-container>
