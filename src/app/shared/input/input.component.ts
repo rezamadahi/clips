@@ -12,5 +12,7 @@ export class InputComponent {
   @Input() type = 'text';
   @Input() label = '';
   @Input() placeholder = '';
+  @Input() format = '';
+  @Input() isDrop = true;
 
 }

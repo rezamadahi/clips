@@ -13,8 +13,18 @@ export class RegisterComponent {
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,15}$')]),
     confirmPassword: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', [Validators.required]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]),
     age: new FormControl(18, [Validators.required, Validators.min(18), Validators.max(120)]),
   });
+
+  alertMsg = 'Please wait! Your account is being created.';
+  showAlert = false;
+  alertColor = 'blue';
+
+  onSubmit() {
+    this.showAlert = true;
+    this.alertMsg = 'Please wait! Your account is being created.';
+    this.alertColor = 'blue';
+  }
 
 }
