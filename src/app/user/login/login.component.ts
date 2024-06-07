@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  credentials = {
+    email: '',
+    password: ''
+  };
+
+  passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,15}$';
+
+  login() {
+    console.log(this.credentials);
+  }
+
 }

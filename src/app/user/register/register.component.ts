@@ -21,7 +21,7 @@ export class RegisterComponent {
   showAlert = false;
   alertColor = 'blue';
 
-  onSubmit() {
+  register() {
     this.showAlert = true;
     this.alertMsg = 'Please wait! Your account is being created.';
     this.alertColor = 'blue';
