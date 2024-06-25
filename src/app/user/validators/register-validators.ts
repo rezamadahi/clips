@@ -4,7 +4,7 @@ export class RegisterValidators {
 
   static match(group: AbstractControl): ValidationErrors | null {
     const control = group.get('password');
-    const matchingControl = group.get('confirm_password');
+    const matchingControl = group.get('confirmPassword');
 
     if (!control || !matchingControl) {
       return { controlNotFound: false };
