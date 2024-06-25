@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
-import IUser from "../../models/user.model";
+import {AuthService} from "src/app/services/auth.service";
+import IUser from "src/app/models/user.model";
+import { RegisterValidators } from "src/app/user/validators/register-validators";
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent {
     confirmPassword: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required, Validators.minLength(13), Validators.maxLength(13)]),
     age: new FormControl(18, [Validators.required, Validators.min(18), Validators.max(120)]),
-  });
+  }, [ RegisterValidators.match ]);
 
   alertMsg = 'Please wait! Your account is being created.';
   showAlert = false;
