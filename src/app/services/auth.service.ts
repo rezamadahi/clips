@@ -21,7 +21,7 @@ export class AuthService {
     private db: AngularFirestore,
     private router: Router,
     private route: ActivatedRoute
-  ) { 
+  ) {
     this.usersCollection = db.collection('users')
     this.isAuthenticated$ = auth.user.pipe(
       map(user => !!user)
@@ -33,11 +33,11 @@ export class AuthService {
       filter(e => e instanceof NavigationEnd),
       map(e => this.route.firstChild),
       switchMap(route => route?.data ?? of({}))
-    ).subscribe(data => {
+    ).subscribe((data: any) => {
       this.redirect = data.authOnly ?? false
     })
   }
-  
+
   public async createUser(userData: IUser) {
     if(!userData.password) {
       throw new Error("Password not provided!")
@@ -50,7 +50,7 @@ export class AuthService {
     if(!userCred.user) {
       throw new Error("User can't be found")
     }
-    
+
     await this.usersCollection.doc(userCred.user.uid).set({
       name: userData.name,
       email: userData.email,
