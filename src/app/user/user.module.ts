@@ -1,10 +1,11 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {AuthModalComponent} from './auth-modal/auth-modal.component';
-import {SharedModule} from "../shared/shared.module";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AuthModalComponent } from './auth-modal/auth-modal.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -12,15 +13,14 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     LoginComponent,
     RegisterComponent
   ],
-  exports: [
-    AuthModalComponent
-  ],
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
+  ],
+  exports: [
+    AuthModalComponent
   ]
 })
-export class UserModule {
-}
+export class UserModule { }

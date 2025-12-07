@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from "src/app/home/home.component";
-import {AboutComponent} from "src/app/about/about.component";
-import {ClipComponent} from "./clip/clip.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ClipComponent } from './clip/clip.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
-    path: 'about',
-    component: AboutComponent,
+    path: 'about', // example.com/about
+    component: AboutComponent
   },
   {
     path: 'clip/:id',
-    component: ClipComponent,
+    component: ClipComponent
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    component: NotFoundComponent
   }
 ];
 
